@@ -14,8 +14,6 @@ processes=`ps aux | wc -l`
 
 #ip=`ifconfig $(route -n | grep '^0.0.0.0' | awk '{ print $8 }') | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'`
 #ip=`ip addr show $(ip route | awk '/default/ { print $5 }') | grep "inet" | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1`
-# if command -v ifconfig &> /dev/null; then
-
 if [ -x "$(command -v ifconfig)" ]; then
   ip=`ifconfig $(route -n | grep '^0.0.0.0' | awk '{ print $8 }') | grep "inet" | awk '{print $2}' | head -1`
 else

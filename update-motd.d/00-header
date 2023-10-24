@@ -4,6 +4,7 @@
 #
 [ -r /etc/os-release ] && . /etc/os-release
 OS=$PRETTY_NAME
+OS_VER=$VERSION
 if [ -z "$OS" ] && [ -x /usr/bin/lsb_release ]; then
         OS=$(lsb_release -s -d)
 fi
@@ -16,5 +17,6 @@ fi
 
 printf "\n"
 # printf "\t- %s \l\n\t- OS version %s\n\t- Kernel %s\n" "$OS" "$(cat /etc/debian_version)" "$(uname -r)"
-printf "  - %s \l\n  - OS version %s\n  - Kernel %s\n" "$OS" "$(cat /etc/debian_version)" "$(uname -r)"
+#printf "  - %s \l\n  - OS version %s\n  - Kernel %s\n" "$OS" "$(cat /etc/debian_version)" "$(uname -r)"
+printf "  - %s \l\n  - OS version %s\n  - Kernel %s\n" "$OS" "$OS_VER" "$(uname -r)"
 printf "\n"
