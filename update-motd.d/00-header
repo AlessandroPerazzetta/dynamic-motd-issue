@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+#    00-header - create the header of the MOTD
+#
+[ -r /etc/os-release ] && . /etc/os-release
+OS=$PRETTY_NAME
+if [ -z "$OS" ] && [ -x /usr/bin/lsb_release ]; then
+        OS=$(lsb_release -s -d)
+fi
+
+if ! [ -x "$(command -v figlet)" ]; then
+  printf "\n\t- Hostname %s" "$(hostname)"
+else
+  figlet -f slant $(hostname)
+fi
+
+printf "\n"
+# printf "\t- %s \l\n\t- OS version %s\n\t- Kernel %s\n" "$OS" "$(cat /etc/debian_version)" "$(uname -r)"
+printf "  - %s \l\n  - OS version %s\n  - Kernel %s\n" "$OS" "$(cat /etc/debian_version)" "$(uname -r)"
+printf "\n"
