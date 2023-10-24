@@ -21,11 +21,11 @@ function check_dependencies {
     case $OS in
     linux)
         source /etc/os-release
-	if [ -z "$ID_LIKE" ];then
-	  OS_ID=$ID
-	else
-	  OS_ID=$ID_LIKE
-	fi
+        if [ -z "$ID_LIKE" ];then
+            OS_ID=$ID
+        else
+            OS_ID=$ID_LIKE
+        fi
         case $OS_ID in
         *debian*|*ubuntu*|*mint*)
             missingdepsinstall="sudo apt install"
