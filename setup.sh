@@ -18,6 +18,7 @@ if ! [ -x "$(command -v lsb_release)" ]; then
   apt install lsb-release
 fi
 
+mkdir -p /etc/update-motd.d/
 cp ./update-motd.d/* /etc/update-motd.d/
 
 mv /etc/motd /etc/motd.ORI
