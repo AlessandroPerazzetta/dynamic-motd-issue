@@ -6,8 +6,14 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 if ! [ -x "$(command -v figlet)" ]; then
-  apt install figlet
+  read -p "Figlet not found, installing ... are you sure? " -n 1 -r
+	echo    # (optional) move to a new line
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+    apt install figlet
+  fi
 fi
+
 if ! [ -x "$(command -v lsb_release)" ]; then
   apt install lsb-release
 fi
