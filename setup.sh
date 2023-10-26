@@ -136,6 +136,7 @@ function create_issue_generator {
 #
 set -e
 
+sleep 5
 HEADER=$(/etc/update-motd.d/00-header)
 SYSINFO=$(/etc/update-motd.d/10-sysinfo)
 
